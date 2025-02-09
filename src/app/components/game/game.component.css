@@ -1,0 +1,91 @@
+.game {
+  text-align: center;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+.guess-box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+.target-color {
+  width: 250px;
+  height: 120px;
+  margin: 15px auto;
+}
+
+.guess {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.score-btn {
+  padding: 10px 15px;
+  border: 1px solid #c3b3d8;
+  background-color: transparent;
+  color: #fff;
+}
+.new-game-btn {
+  background-color: orange;
+  padding: 12px;
+  color: #fff;
+  border: none;
+}
+
+@keyframes correctAnswer {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+    transform: scale(0.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes wrongAnswer {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.correct-status {
+  animation: correctAnswer 0.5s ease-in-out;
+}
+.wrong-status {
+  animation: wrongAnswer 0.5s ease-in-out;
+}
+
+@media (min-width: 700px) {
+  .guess-box {
+    width: 150px;
+    height: 150px;
+  }
+  .target-color {
+    width: 350px;
+    height: 170px;
+    margin: 15px auto;
+  }
+}

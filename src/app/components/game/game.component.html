@@ -1,0 +1,26 @@
+<div class="game">
+  <p [class]="{
+    'correct-status': isCorrect(),
+    'wrong-status': !isCorrect()
+
+  }">{{gameStatus()}}</p>
+  <main>
+    <button class="score-btn">Score: {{score()}}</button>
+    <div
+      class="target-color"
+      [style]="{
+        backgroundColor: targetColor()
+      }"
+    ></div>
+    <p>Guess the correct color!</p>
+  </main>
+  <div class="guess">
+    @for (color of colorOptions(); track $index) {
+    <div class="guess-box"  [style]="{
+        backgroundColor: color
+      }" (click)="handleColor(color)"></div>
+
+    }
+  </div>
+  <button class="new-game-btn" (click)="newGame()">New Game</button>
+</div>
